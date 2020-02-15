@@ -19,7 +19,23 @@
               <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#" onclick="function openAboutPage() {
+                const postsListElement = document.getElementById('posts');
+                postsListElement.setAttribute('hidden', 'hidden');
+
+                const contentElement = document.getElementById('content');
+                const aboutUsElement = document.createElement('div');
+                aboutUsElement.innerHTML = `
+                <h1>About IT Academy</h1>
+                <p class='lead'>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Autem commodi cupiditate dolorem doloremque dolorum fugiat
+              saepe sint soluta ullam voluptates voluptatum?
+              </p>
+                `;
+                contentElement.appendChild(aboutUsElement);
+              }
+              openAboutPage()">About</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -54,8 +70,8 @@
             <li class="nav-item"><a href="#" class="nav-link">Post #3</a></li>
           </ul>
         </div>
-        <div class="col-9">
-          <ul class="list-unstyled">
+        <div class="col-9" id="content">
+          <ul class="list-unstyled" id="posts">
             <li class="media">
               <img
                 class="mr-3"
