@@ -1,0 +1,125 @@
+
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="#" class="navbar-brand">Academy Blog</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" onclick="function openAboutPage() {
+                const postsListElement = document.getElementById('posts');
+                postsListElement.setAttribute('hidden', 'hidden');
+
+                const contentElement = document.getElementById('content');
+                const aboutUsElement = document.createElement('div');
+                aboutUsElement.innerHTML = `
+                <h1>About IT Academy</h1>
+                <p class='lead'>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Autem commodi cupiditate dolorem doloremque dolorum fugiat
+              saepe sint soluta ullam voluptates voluptatum?
+              </p>
+                `;
+                contentElement.appendChild(aboutUsElement);
+              }
+              openAboutPage()">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Category 1</a>
+            <a class="dropdown-item" href="#">Category 2</a>
+            <a class="dropdown-item" href="#">Category 3</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2>Recent posts</h2>
+      <ul class="nav flex-column">
+        <li class="nav-item"><a href="#" class="nav-link">Post #1</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Post #2</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Post #3</a></li>
+      </ul>
+    </div>
+    <div class="col-9" id="content">
+      <ul class="list-unstyled" id="posts">
+        <li class="media">
+          <img
+            class="mr-3"
+            src="https://source.unsplash.com/150x150/?development,programming"
+            alt="Post #1"
+          />
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Post #1</h5>
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Autem commodi cupiditate dolorem doloremque dolorum fugiat
+              saepe sint soluta ullam voluptates voluptatum?
+            </p>
+            <p class="text-right">
+              <a href="#">Read more</a>
+              <a href="#">Comments (2)</a>
+            </p>
+          </div>
+        </li>
+        <li class="media">
+          <img
+            class="mr-3"
+            src="https://source.unsplash.com/150x150/?development,programming"
+            alt="Post #1"
+          />
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Post #1</h5>
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Autem commodi cupiditate dolorem doloremque dolorum fugiat
+              saepe sint soluta ullam voluptates voluptatum?
+            </p>
+            <p class="text-right">
+              <a href="#">Read more</a>
+              <a href="#">Comment</a>
+            </p>
+          </div>
+        </li>
+        <li class="media">
+          <img
+            class="mr-3"
+            src="https://source.unsplash.com/150x150/?development,programming"
+            alt="Post #1"
+          />
+          <div class="media-body">
+            <h5 class="mt-0 mb-1">Post #1</h5>
+            <p class="lead">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Autem commodi cupiditate dolorem doloremque dolorum fugiat
+              saepe sint soluta ullam voluptates voluptatum?
+            </p>
+            <p class="text-right">
+              <a href="#">Read more</a>
+              <a href="#">Comments (99+)</a>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
