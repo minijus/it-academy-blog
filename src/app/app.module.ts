@@ -1,32 +1,38 @@
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { Route, RouterModule } from "@angular/router";
-import { AppComponent } from "./app.component";
-import { HomePageComponent } from "./home-page/home-page.component";
-import { PostDetailsComponent } from "./post-details/post-details.component";
-import { PostComponent } from "./post/post.component";
+import {BrowserModule} from "@angular/platform-browser";
+import {NgModule} from "@angular/core";
+import {AppComponent} from "./app.component";
+import {HomePageComponent} from "./home-page/home-page.component";
+import {PostComponent} from "./post/post.component";
+import {RouterModule, Routes} from "@angular/router";
+import {NotFoundComponent} from "./not-found/not-found.component";
+import {PostPageComponent} from "./post-page/post-page.component";
+import {RecentPostsComponent} from "./recent-posts/recent-posts.component";
+import {AboutPageComponent} from "./about-page/about-page.component";
+import {HttpClientModule} from "@angular/common/http";
 
-//fb.com/home/0
-
-const routes: Route[] = [
-  {
-    path: "home",
-    component: HomePageComponent
-  },
-  { path: "post/:id", component: PostDetailsComponent },
-  { path: "", pathMatch: "full", redirectTo: "home" },
-  { path: "**", redirectTo: "home" }
+const appRoutes: Routes = [
+  { path: "home", component: HomePageComponent },
+  { path: "post/:id", component: PostPageComponent },
+  { path: "about", component: AboutPageComponent },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "**", component: NotFoundComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
+    PostPageComponent,
+    AboutPageComponent,
     PostComponent,
-    PostDetailsComponent
+    NotFoundComponent,
+    RecentPostsComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

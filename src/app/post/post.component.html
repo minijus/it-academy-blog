@@ -1,22 +1,32 @@
-<li>
-  <div class="media">
-    <img
-      *ngIf="post.img"
-      class="mr-3"
-      [src]="post.img"
-      alt="{{ post.title }}"
-    />
-    <div class="media-body">
-      <h5 class="mt-0 mb-1">{{ post.title }}</h5>
-      <h6>
-        Written by
-        <a href="#" (click)="onAuthorClick(post)">{{ post.author }}</a>
-      </h6>
-      <p class="lead">{{ post.content }}</p>
-    </div>
+<li class="media">
+  <img
+    *ngIf="post.img"
+    class="mr-3"
+    [src]="post.img"
+    alt="{{ post.title }}"
+    [routerLink]="['/post', post.id]"
+  />
+  <div class="media-body">
+    <h5 class="mt-0 mb-1" [routerLink]="['/post', post.id]">
+      {{ post.title }}
+    </h5>
+    <h6>
+      Written by <a href="#" (click)="onAuthorClick(post)">{{ post.author }}</a>
+    </h6>
+    <p class="lead">{{ post.lead }}</p>
+    <p class="text-right">
+      <a
+        [title]="'Read full post: ' + post.title"
+        [routerLink]="['/post', post.id]"
+        >Read more</a
+      >
+      <a
+        href="#"
+        (click)="onCommentsClick(post)"
+        [routerLink]="['/post', post.id]"
+        fragment="comments"
+        >Comments (2)</a
+      >
+    </p>
   </div>
-  <p class="text-right">
-    <a href="#" [routerLink]="['/post', post.id]">Read more</a>
-    <a href="#" (click)="onCommentsClick(post)">Comments (2)</a>
-  </p>
 </li>

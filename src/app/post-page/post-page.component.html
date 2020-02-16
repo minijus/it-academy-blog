@@ -1,0 +1,18 @@
+<article>
+  <img
+    *ngIf="post.fullImg"
+    class="mr-3"
+    [src]="post.fullImg"
+    alt="{{ post.title }}"
+  />
+  <h5>{{ post.title }}</h5>
+  <h6>
+    Written by <a href="#">{{ post.author }}</a>
+  </h6>
+  <p class="lead">{{ post.lead }}</p>
+  <p *ngFor="let contentParagraph of postContent">{{ contentParagraph }}</p>
+</article>
+<div>
+  <h5 id="comments">Comments</h5>
+  No comments yet? <a href="#">Leave one</a>.
+</div>

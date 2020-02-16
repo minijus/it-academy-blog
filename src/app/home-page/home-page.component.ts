@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { PostService } from "../post.service";
-import { Post } from "../shared/post";
+import {Component, OnInit} from "@angular/core";
+import {Post} from "../shared/post";
+import {PostsService} from "../services/posts.service";
 
 @Component({
   selector: "app-home-page",
@@ -9,12 +9,10 @@ import { Post } from "../shared/post";
 })
 export class HomePageComponent implements OnInit {
   posts: Post[];
-  constructor(private postService: PostService) {}
+  constructor(private postsService: PostsService) {}
 
   ngOnInit() {
-    this.postService.loadPosts().then(posts => {
-      this.posts = posts;
-    });
+    this.posts = this.postsService.getPosts();
   }
 
   handlePostReadMoreClick(post: Post) {

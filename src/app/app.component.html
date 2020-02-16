@@ -3,11 +3,11 @@
     <a href="#" class="navbar-brand">Academy Blog</a>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home</a>
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link" [routerLink]="'home'">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" [routerLink]="'about'">About</a>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -35,12 +35,7 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <h2>Recent posts</h2>
-      <ul class="nav flex-column">
-        <li class="nav-item"><a href="#" class="nav-link">Post #1</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Post #2</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Post #3</a></li>
-      </ul>
+      <app-recent-posts></app-recent-posts>
     </div>
     <div class="col-9">
       <router-outlet></router-outlet>
