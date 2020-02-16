@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { PostsService } from "../services/posts.service";
 import { Post } from "../shared/post";
+import { from, Observable } from "rxjs";
+import { switchMap, tap } from "rxjs/operators";
 
 @Component({
   selector: "app-post-page",
@@ -9,7 +11,7 @@ import { Post } from "../shared/post";
   styleUrls: ["./post-page.component.scss"]
 })
 export class PostPageComponent implements OnInit {
-  public post: Post;
+  public post$: Observable<Post>;
   public postContent: string[];
   constructor(
     private route: ActivatedRoute,
@@ -17,11 +19,13 @@ export class PostPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.postsService.getPost({ id: params.get("id") }).then(post => {
-        this.post = post;
-        this.postContent = this.post.content.split("\n");
-      });
-    });
+    this.post$ = from(this.route.paramMap).pipe(
+      switchMap(params => {
+        return this.postsService.getPost({ id: params.get("id") });
+      }),
+      tap(post => {
+        this.postContent = post.content.split("\n");
+      })
+    );
   }
 }

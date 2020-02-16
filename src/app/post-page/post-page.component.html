@@ -1,4 +1,4 @@
-<article>
+<article *ngIf="post$ | async as post">
   <img
     *ngIf="post.fullImg"
     class="mr-3"
