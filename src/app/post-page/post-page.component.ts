@@ -18,8 +18,10 @@ export class PostPageComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.post = this.postsService.getPost({ id: params.get("id") });
-      this.postContent = this.post.content.split("\n");
+      this.postsService.getPost({ id: params.get("id") }).then(post => {
+        this.post = post;
+        this.postContent = this.post.content.split("\n");
+      });
     });
   }
 }

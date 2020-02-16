@@ -30,8 +30,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

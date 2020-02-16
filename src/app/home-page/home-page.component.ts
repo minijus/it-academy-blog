@@ -12,7 +12,9 @@ export class HomePageComponent implements OnInit {
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
-    this.posts = this.postsService.getPosts();
+    this.postsService.getPosts().then(posts => {
+      this.posts = posts;
+    });
   }
 
   handlePostReadMoreClick(post: Post) {

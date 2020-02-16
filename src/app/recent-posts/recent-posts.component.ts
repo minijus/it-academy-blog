@@ -12,6 +12,8 @@ export class RecentPostsComponent implements OnInit {
   constructor(private postsService: PostsService) {}
 
   ngOnInit() {
-    this.posts = this.postsService.getPosts().slice(0, 3);
+    this.postsService.getPosts().then(posts => {
+      this.posts = posts.slice(0, 3);
+    });
   }
 }
