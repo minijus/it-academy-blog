@@ -1,7 +1,36 @@
 <ul class="list-unstyled" id="posts">
   <app-post
-    *ngFor="let post of posts"
-    [post]="post"
+    [post]="posts[0]"
+    (readMoreClick)="handlePostReadMoreClick($event)"
+    (commentsClick)="handlePostCommentsClick($event)"
+    (authorClick)="handlePostAuthorClick($event)"
+  ></app-post>
+  <app-post
+    [post]="posts[1]"
+    (readMoreClick)="handlePostReadMoreClick($event)"
+    (commentsClick)="handlePostCommentsClick($event)"
+    (authorClick)="handlePostAuthorClick($event)"
+  ></app-post>
+  <app-post
+    [post]="posts[2]"
+    (readMoreClick)="handlePostReadMoreClick($event)"
+    (commentsClick)="handlePostCommentsClick($event)"
+    (authorClick)="handlePostAuthorClick($event)"
+  ></app-post>
+  <app-post
+    [post]="posts[3]"
+    (readMoreClick)="handlePostReadMoreClick($event)"
+    (commentsClick)="handlePostCommentsClick($event)"
+    (authorClick)="handlePostAuthorClick($event)"
+  ></app-post>
+  <app-post
+    [post]="posts[4]"
+    (readMoreClick)="handlePostReadMoreClick($event)"
+    (commentsClick)="handlePostCommentsClick($event)"
+    (authorClick)="handlePostAuthorClick($event)"
+  ></app-post>
+  <app-post
+    [post]="posts[5]"
     (readMoreClick)="handlePostReadMoreClick($event)"
     (commentsClick)="handlePostCommentsClick($event)"
     (authorClick)="handlePostAuthorClick($event)"

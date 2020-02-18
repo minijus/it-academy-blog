@@ -1,14 +1,17 @@
-<li class="media">
-  <img *ngIf="post.img" class="mr-3" [src]="post.img" alt="{{ post.title }}" />
-  <div class="media-body">
-    <h5 class="mt-0 mb-1">{{ post.title }}</h5>
-    <h6>
-      Written by <a href="#" (click)="onAuthorClick(post)">{{ post.author }}</a>
-    </h6>
-    <p class="lead">{{ post.content }}</p>
-    <p class="text-right">
-      <a href="#" (click)="onReadMoreClick(post)">Read more</a>
-      <a href="#" (click)="onCommentsClick(post)">Comments (2)</a>
-    </p>
+<li>
+  <div class="media">
+    <img class="mr-3" [src]="post.img" alt="{{ post.title }}" />
+    <div class="media-body">
+      <h5 class="mt-0 mb-1">{{ post.title }}</h5>
+      <h6>
+        Written by
+        <a href="#" (click)="onAuthorClick(post)">{{ post.author }}</a>
+      </h6>
+      <p class="lead">{{ post.content }}</p>
+    </div>
   </div>
+  <p class="text-right">
+    <a href="#" (click)="onReadMoreClick(post)">Read more</a>
+    <a href="#" (click)="onCommentsClick(post)">Comments (2)</a>
+  </p>
 </li>
