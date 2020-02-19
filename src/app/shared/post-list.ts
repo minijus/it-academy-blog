@@ -3,7 +3,7 @@ import { Post } from "./post";
 export const postList: Post[] = [
   {
     id: "0",
-    author: "Darius",
+    author: "Antanas",
     title: "Post 1",
     content: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
           Autem commodi cupiditate dolorem doloremque dolorum fugiat
