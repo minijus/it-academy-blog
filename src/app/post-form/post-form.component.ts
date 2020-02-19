@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from '../services/posts.service';
 import { Post } from '../shared/post';
 
 @Component({
@@ -8,11 +9,21 @@ import { Post } from '../shared/post';
 })
 export class PostFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
   post: Post;
+  serverErrorMessage: string;
 
   ngOnInit(): void {
-    this.post = { author: '', content: '', email: ''};
+    this.post = { author: '', content: '', email: '', title: '' };
+  }
+
+  onSubmit() {
+    this.postsService.addPost(this.post).subscribe(() => {
+      this.post = { author: '', content: '', email: '', title: '' };
+      this.serverErrorMessage = '';
+    },
+      error => this.serverErrorMessage = error
+    );
   }
 
 }

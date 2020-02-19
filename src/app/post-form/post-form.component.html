@@ -1,12 +1,14 @@
 <div class="container">
   <h2 class="text-center">Would you like to try?</h2>
-  <form>
+  <form #postForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="author">Your name</label>
       <input
         type="text"
         class="form-control"
         id="author"
+        [(ngModel)]="post.author"
+        name="author"
       />
     </div>
     <div class="form-group">
@@ -15,6 +17,9 @@
         type="email"
         class="form-control"
         id="email"
+        placeholder="name@example.com"
+        [(ngModel)]="post.email"
+        name="email"
       />
     </div>
     <div class="form-group">
@@ -23,6 +28,8 @@
         type="text"
         class="form-control"
         id="title"
+        [(ngModel)]="post.title"
+        name="title"
       />
     </div>
     <div class="form-group">
@@ -31,9 +38,26 @@
         class="form-control"
         id="content"
         rows="10"
+        [(ngModel)]="post.content"
+        name="content"
       ></textarea>
     </div>
+    Check form updates:
+    <pre>{{ post | json }} <br /></pre>
+    <pre>{{ postForm.value | json }}</pre>
+    <div class="alert alert-danger" role="alert" *ngIf="serverErrorMessage">
+      {{ serverErrorMessage }}
+    </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <div class="row">
+      <div class="col-2">
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-light" (click)="postForm.reset()">
+          Clear
+        </button>
+      </div>
+    </div>
   </form>
 </div>
