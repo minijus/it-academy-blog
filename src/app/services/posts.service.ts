@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Post } from "../shared/post";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
-import { catchError } from 'rxjs/operators';
+import { catchError } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -10,7 +10,7 @@ import { catchError } from 'rxjs/operators';
 export class PostsService {
   private readonly apiPath = "/api";
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
   getPosts(): Observable<Post[]> {
     return this.httpClient.get<Post[]>(`${this.apiPath}/posts`);
   }
@@ -19,12 +19,14 @@ export class PostsService {
   }
 
   addPost(post: Post): Observable<Post> {
-    return this.httpClient.post<Post>(`${this.apiPath}/posts`, post).pipe(
-      catchError(this.errorHandler)
-    );
+    return this.httpClient
+      .post<Post>(`${this.apiPath}/posts`, post)
+      .pipe(catchError(this.errorHandler));
   }
 
   errorHandler() {
-    return throwError('Sorry, our services does not work right now, please try that later');
+    return throwError(
+      "Sorry, our services does not work right now, please try that later"
+    );
   }
 }

@@ -15,10 +15,6 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onReadMoreClick(post: Post) {
-    this.readMoreClick.emit(post);
-  }
-
   onCommentsClick(post: Post) {
     this.commentsClick.emit(post);
   }

@@ -15,8 +15,8 @@ import { FormsModule } from "@angular/forms";
 
 const appRoutes: Routes = [
   { path: "home", component: HomePageComponent },
-  { path: "post/:id", component: PostPageComponent },
   { path: "posts/add", component: PostWritingComponent },
+  { path: "post/:id", component: PostPageComponent },
   { path: "about", component: AboutPageComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }

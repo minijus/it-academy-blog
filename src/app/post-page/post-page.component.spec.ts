@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { PostPageComponent } from './post-page.component';
+import { PostPageComponent } from "./post-page.component";
 
-describe('PostPageComponent', () => {
+describe("PostPageComponent", () => {
   let component: PostPageComponent;
   let fixture: ComponentFixture<PostPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PostPageComponent ]
-    })
-    .compileComponents();
+      declarations: [PostPageComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('PostPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
