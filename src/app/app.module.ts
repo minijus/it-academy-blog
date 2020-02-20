@@ -11,7 +11,7 @@ import { AboutPageComponent } from "./about-page/about-page.component";
 import { HttpClientModule } from "@angular/common/http";
 import { PostWritingComponent } from "./post-writing/post-writing.component";
 import { PostFormComponent } from "./post-form/post-form.component";
-import { FormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 
 const appRoutes: Routes = [
   { path: "home", component: HomePageComponent },
@@ -37,7 +37,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { anchorScrolling: "enabled" })
   ],
   providers: [],

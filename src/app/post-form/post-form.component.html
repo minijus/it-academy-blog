@@ -1,20 +1,22 @@
 <div class="container">
   <h2 class="text-center">Would you like to try?</h2>
-  <form #postForm="ngForm" (ngSubmit)="onSubmit(); postForm.reset()">
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit(); postForm.reset()">
     <div class="form-group">
       <label for="author">Your name</label>
       <input
         type="text"
         class="form-control"
         id="author"
-        [(ngModel)]="post.author"
-        name="author"
-        required
-        #author="ngModel"
+        formControlName="author"
       />
     </div>
     <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
-      Author name is required
+      <div *ngIf="author.errors?.required">
+        Authoe Name is required
+      </div>
+      <div *ngIf="author.errors?.forbiddenName">
+        Laura name is forbidden to use
+      </div>
     </div>
     <div class="form-group">
       <label for="email">Your email address</label>
@@ -23,11 +25,7 @@
         class="form-control"
         id="email"
         placeholder="name@example.com"
-        [(ngModel)]="post.email"
-        name="email"
-        required
-        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-        #email="ngModel"
+        formControlName="email"
       />
     </div>
     <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
@@ -44,10 +42,7 @@
         id="title"
         [(ngModel)]="post.title"
         name="title"
-        required
-        minlength="2"
-        maxlength="30"
-        #title="ngModel"
+        formControlName="title"
       />
     </div>
     <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
@@ -64,10 +59,7 @@
         class="form-control"
         id="content"
         rows="10"
-        [(ngModel)]="post.content"
-        name="content"
-        required
-        #content="ngModel"
+        formControlName="content"
       ></textarea>
     </div>
     <div
