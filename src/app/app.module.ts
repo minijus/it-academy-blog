@@ -14,12 +14,17 @@ import { PostFormComponent } from "./post-form/post-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { CategoryPageComponent } from "./category-page/category-page.component";
-import { PostListComponent } from './post-list/post-list.component';
+import { PostListComponent } from "./post-list/post-list.component";
+import { AuthorDetailsComponent } from "./author-details/author-details.component";
+import { AuthorPageComponent } from "./author-page/author-page.component";
+import { AuthorsPageComponent } from "./authors-page/authors-page.component";
 
 const appRoutes: Routes = [
   { path: "home", component: HomePageComponent },
   { path: "posts/add", component: PostWritingComponent },
   { path: "post/:id", component: PostPageComponent },
+  { path: "authors", component: AuthorsPageComponent },
+  { path: "authors/:id", component: AuthorPageComponent },
   { path: "category/:id", component: CategoryPageComponent },
   { path: "about", component: AboutPageComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -39,7 +44,10 @@ const appRoutes: Routes = [
     PostWritingComponent,
     NavbarComponent,
     CategoryPageComponent,
-    PostListComponent
+    PostListComponent,
+    AuthorDetailsComponent,
+    AuthorPageComponent,
+    AuthorsPageComponent
   ],
   imports: [
     BrowserModule,
