@@ -19,6 +19,10 @@ export class PostsService {
     return this.httpClient.get<Post[]>(`${this.apiPath}/posts?_sort=created&_order=desc&_start=0&_limit=${limit}`);
   }
 
+  getMostViewedPosts(limit) {
+    return this.httpClient.get<Post[]>(`${this.apiPath}/posts?_sort=views&_order=desc&_start=0&_limit=${limit}`);
+  }
+
   getPost({ id }): Observable<Post> {
     return this.httpClient.get<Post>(`${this.apiPath}/posts/${id}`);
   }

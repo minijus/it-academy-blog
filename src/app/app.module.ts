@@ -18,6 +18,7 @@ import { PostListComponent } from "./post-list/post-list.component";
 import { AuthorDetailsComponent } from "./author-details/author-details.component";
 import { AuthorPageComponent } from "./author-page/author-page.component";
 import { AuthorsPageComponent } from "./authors-page/authors-page.component";
+import { MostViewedPostsComponent } from './most-viewed-posts/most-viewed-posts.component';
 
 const appRoutes: Routes = [
   { path: "home", component: HomePageComponent },
@@ -47,7 +48,8 @@ const appRoutes: Routes = [
     PostListComponent,
     AuthorDetailsComponent,
     AuthorPageComponent,
-    AuthorsPageComponent
+    AuthorsPageComponent,
+    MostViewedPostsComponent
   ],
   imports: [
     BrowserModule,
