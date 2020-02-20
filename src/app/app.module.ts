@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { PostWritingComponent } from "./post-writing/post-writing.component";
 import { PostFormComponent } from "./post-form/post-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { NavbarComponent } from './navbar/navbar.component';
 
 const appRoutes: Routes = [
   { path: "home", component: HomePageComponent },
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     NotFoundComponent,
     RecentPostsComponent,
     PostFormComponent,
-    PostWritingComponent
+    PostWritingComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
