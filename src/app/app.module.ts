@@ -12,12 +12,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { PostWritingComponent } from "./post-writing/post-writing.component";
 import { PostFormComponent } from "./post-form/post-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from "./navbar/navbar.component";
+import { CategoryPageComponent } from "./category-page/category-page.component";
+import { PostListComponent } from './post-list/post-list.component';
 
 const appRoutes: Routes = [
   { path: "home", component: HomePageComponent },
   { path: "posts/add", component: PostWritingComponent },
   { path: "post/:id", component: PostPageComponent },
+  { path: "category/:id", component: CategoryPageComponent },
   { path: "about", component: AboutPageComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "**", component: NotFoundComponent }
@@ -34,7 +37,9 @@ const appRoutes: Routes = [
     RecentPostsComponent,
     PostFormComponent,
     PostWritingComponent,
-    NavbarComponent
+    NavbarComponent,
+    CategoryPageComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
