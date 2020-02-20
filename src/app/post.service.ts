@@ -9,12 +9,9 @@ export class PostService {
   constructor(private httpClient: HttpClient) {}
 
   loadPosts() {
-    return this.httpClient
-      .get<{ posts: Post[] }>("/assets/post-list.json")
-      .toPromise()
-      .then(data => data.posts);
+    return this.httpClient.get<Post[]>("/api/posts").toPromise();
   }
   getPost(id) {
-    return this.loadPosts().then(postList => postList.find(p => (p.id = id)));
+    return this.httpClient.get<Post>(`/api/posts/${id}`).toPromise();
   }
 }
