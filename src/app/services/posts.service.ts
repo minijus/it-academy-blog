@@ -14,6 +14,11 @@ export class PostsService {
   getPosts(): Observable<Post[]> {
     return this.httpClient.get<Post[]>(`${this.apiPath}/posts`);
   }
+
+  getRecentPosts(limit) {
+    return this.httpClient.get<Post[]>(`${this.apiPath}/posts?_sort=created&_order=desc&_start=0&_limit=${limit}`);
+  }
+
   getPost({ id }): Observable<Post> {
     return this.httpClient.get<Post>(`${this.apiPath}/posts/${id}`);
   }
